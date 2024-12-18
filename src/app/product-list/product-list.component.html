@@ -1,8 +1,20 @@
-<div class="product-list">
+<!-- <div class="product-list">
     <div *ngFor="let product of products" class="product-item">
         <img [src]="product.imageUrl" [alt]="product.name">
         <h3>{{ product.name }}</h3>
         <p>{{ product.description }}</p>
         <p>Price: ${{ product.price }}</p>
     </div>
+</div> -->
+
+<div class="product-grid">
+    <div *ngFor="let product of displayedProducts" class="product-item">
+        <img [src]="product.imageUrl" [alt]="product.name">
+        <h3>{{ product.name }}</h3>
+    </div>
+</div>
+
+<div class="pagination">
+    <button (click)="previousPage()" [disabled]="currentPage === 0">Previous</button>
+    <button (click)="nextPage()" [disabled]="(currentPage + 1) * itemsPerPage >= products.length">Next</button>
 </div>
